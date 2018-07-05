@@ -1,0 +1,97 @@
+openapi: 3.0.1
+info:
+  title: Chat REST API
+  description: docs for 4 endpoints
+  version: '0.1'
+servers:
+  - url: 'http://localhost:9020'
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT  # optional, for documentation purposes only
+
+paths:
+  /user:
+      post:
+        description: Create user
+        requestBody:
+          content:
+            application/json:
+              schema:
+                properties:
+                  password:
+                    type: string
+                  username:
+                    type: string
+              examples:
+                '0':
+                  value: '{"username": "TestUser", "password": "test123456"}'
+        responses:
+          '200':
+            description: User created
+            content:
+              text/plain; charset=utf-8:
+                schema:
+                  type: string
+                examples: {}
+  /login:
+    post:
+      description: Login and get JWT token
+      requestBody:
+        content:
+          application/json:
+            schema:
+              properties:
+                password:
+                  type: string
+                username:
+                  type: string
+            examples:
+              '0':
+                value: '{"username": "TestUser", "password": "test123456"}'
+      responses:
+        '200':
+          description: JWT token for user
+          content:
+            application/json; charset=utf-8:
+              schema:
+                type: string
+              examples: {}
+  /posts:
+    get:
+      description: Get all posts
+      responses:
+        '200':
+          description: All posts
+          content:
+            application/json; charset=utf-8:
+              schema:
+                type: string
+              examples: {}
+      security:
+       - bearerAuth: []
+    post:
+      description: Create post
+      requestBody:
+        content:
+          application/json:
+            schema:
+              properties:
+                text:
+                  type: string
+            examples:
+              '0':
+                value: '{"text": "Whats up"}'
+      responses:
+        '200':
+          description: Post added to database
+          content:
+            text/plain; charset=utf-8:
+              schema:
+                type: string
+              examples: {}
+      security:
+       - bearerAuth: []
+  

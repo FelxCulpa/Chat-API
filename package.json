@@ -1,0 +1,24 @@
+{
+  "name": "fulcrum-test",
+  "version": "1.0.0",
+  "description": "test task",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Oleh Butkov",
+  "license": "ISC",
+  "dependencies": {
+    "config": "^1.30.0",
+    "crypto": "^1.0.1",
+    "jwt-simple": "^0.5.1",
+    "koa": "^2.5.1",
+    "koa-bodyparser": "^4.2.1",
+    "koa-passport": "^4.1.0",
+    "koa-router": "^7.4.0",
+    "mongoose": "^5.2.1",
+    "passport-jwt": "^4.0.0",
+    "passport-local": "^1.0.0",
+    "swagger-koa": "^2.0.0"
+  }
+}
